@@ -1,0 +1,9 @@
+.container {
+  width: 800px;
+  height: 800px;
+}
+
+.container canvas {
+  height: 100%;
+  width: 100%;
+}
