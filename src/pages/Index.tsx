@@ -1,22 +1,39 @@
-import { Link } from "react-router-dom";
+import { useState } from 'react';
+
+import PluginView from './PluginContextWithoutDefaultUI';
+import CanvasView from './OnlyCanvas';
+
+type PageType = 'plugin' | 'canvas';
 
 const IndexPage = () => {
+  const [view, setView] = useState<PageType>('plugin');
+
+  const Page = getPage(view);
+
   return (
-    <nav>
-      <ul>
-        <li>
-          <Link to="/plugin-context-without-default-ui">
-            Plugin context without default UI
-          </Link>
-        </li>      
-        <li>
-          <Link to="/only-canvas">
-            Only canvas
-          </Link>
-        </li>
-      </ul>
-    </nav>
+    <>
+      <main>
+        <Page />
+      </main>
+      <aside>
+        <button>
+          Using plugin
+        </button>
+        <button>
+          Using canvas 3d
+        </button>
+      </aside>
+    </>
   );
+};
+
+
+const getPage = (page: PageType) => {
+  if (page === 'plugin') {
+    return PluginView;
+  } else {
+    return CanvasView
+  }
 };
 
 export default IndexPage;

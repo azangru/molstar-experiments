@@ -1,11 +1,12 @@
-import PluginContextWithoutDefaultUIPage from './pages/PluginContextWithoutDefaultUI';
+// import PluginContextWithoutDefaultUIPage from './pages/PluginContextWithoutDefaultUI';
+import OnlyCanvasPage from './pages/OnlyCanvas';
 
 import './App.css'
 
 function App() {
 
   return (
-    <PluginContextWithoutDefaultUIPage />
+    <OnlyCanvasPage />
   );
 }
 
