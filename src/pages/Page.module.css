@@ -1,9 +1,9 @@
-.container {
-  width: 800px;
-  height: 800px;
+.container canvas {
+  height: 512px;
+  width: 512px;
 }
 
-.container canvas {
-  height: 100%;
-  width: 100%;
+.containerWithUI {
+  height: 800px;
+  width: 800px;
 }

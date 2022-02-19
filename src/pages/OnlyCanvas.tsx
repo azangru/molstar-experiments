@@ -51,7 +51,7 @@ type InitParams = {
 
 const init = async (params: InitParams) => {
   const { canvas } = params;
-  setCanvasSize(canvas, 800, 800); // FIXME
+  setCanvasSize(canvas, 512, 512); // FIXME
   const canvas3d = Canvas3D.create(Canvas3DContext.fromCanvas(canvas));
   canvas3d.animate();
 
