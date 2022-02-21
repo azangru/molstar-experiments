@@ -31,6 +31,7 @@ const init = async (params: InitParams) => {
   const data = await plugin.builders.data.download({ url }, { state: { isGhost: true } });
   const trajectory = await plugin.builders.structure.parseTrajectory(data, 'mmcif');
   await plugin.builders.structure.hierarchy.applyPreset(trajectory, 'default');
+  return plugin;
 };
 
 
@@ -40,11 +41,17 @@ const PluginContextWithoutDefaultUIPage = () => {
   const canvasRef = useRef<HTMLCanvasElement|null>(null);
 
   useEffect(() => {
+    let plugin: PluginContext;
     init({
       parent: divRef.current as HTMLDivElement,
       canvas: canvasRef.current as HTMLCanvasElement,
       url: 'https://alphafold.ebi.ac.uk/files/AF-Q9S745-F1-model_v1.cif'
-    });
+    }).then(instance => plugin = instance as PluginContext);
+
+    return () => {
+      plugin.clear();
+      plugin.dispose();
+    }
   }, []);
 
   return (

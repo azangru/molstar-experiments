@@ -1,3 +1,8 @@
+.container {
+  height: 512px;
+  width: 512px;
+}
+
 .container canvas {
   height: 512px;
   width: 512px;
